@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motor de Inferência Inteligente</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Motor de Inferência Inteligente</h1>
+            <p>Sistema de extração semântica e inferência lógica</p>
+        </header>
+
+        <div class="main-content">
+            <section class="card">
+                <h2>Carregar Texto</h2>
+                <form id="uploadForm" enctype="multipart/form-data">
+                    <input type="file" id="fileInput" accept=".txt" required>
+                    <button type="submit">Processar Texto</button>
+                </form>
+                <div id="uploadResult"></div>
+            </section>
+
+            <section class="card">
+                <h2>Base de Conhecimento</h2>
+                <div class="kb-actions">
+                    <button onclick="loadKnowledgeBase()">Carregar KB</button>
+                    <button onclick="runInference()" class="infer-btn">Executar Inferência</button>
+                    <button onclick="clearKnowledgeBase()" class="clear-btn">Limpar KB</button>
+                </div>
+                <div id="knowledgeBase"></div>
+            </section>
+
+            <section class="card">
+                <h2>Consulta Lógica</h2>
+                <form id="queryForm">
+                    <input type="text" id="queryInput" placeholder="Ex: mortal(Socrates)" required>
+                    <button type="submit">Executar Consulta</button>
+                </form>
+                <div id="queryResult"></div>
+            </section>
+
+            <section class="card">
+                <h2>Árvore de Prova</h2>
+                <div id="proofTree"></div>
+            </section>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>
